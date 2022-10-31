@@ -1,12 +1,8 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
 
-export const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    backgroundColor: "#1f1e25",
-    borderRadius: 5,
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-});
+export const HeaderContainer = styled.View`
+  align-items: center;
+  justify-content: center;
+  padding: 72px 128px;
+  background-color: ${({ theme }) => theme.colors["gray-700"]};
+`;

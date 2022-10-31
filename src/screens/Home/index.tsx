@@ -1,12 +1,12 @@
 import { ReactElement } from "react";
 
 import { Header } from "@components/index";
-import { Container } from "./styles";
+import { HomeContainer } from "./styles";
 
 export const Home = (): ReactElement => {
   return (
-    <Container>
+    <HomeContainer>
       <Header />
-    </Container>
+    </HomeContainer>
   );
 };

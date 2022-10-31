@@ -1,12 +1,13 @@
-import { ReactElement } from "react"
-import { Image, View } from "react-native"
+import { ReactElement } from "react";
+import { Image } from "react-native";
 
-import logoImg from '../../assets/logo.png'
+import logoImg from "@assets/logo.png";
+import { HeaderContainer } from "./styles";
 
 export const Header = (): ReactElement => {
   return (
-    <View>
+    <HeaderContainer>
       <Image source={logoImg} />
-    </View>
-  )
-}
+    </HeaderContainer>
+  );
+};
