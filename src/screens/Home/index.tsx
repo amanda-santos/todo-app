@@ -1,12 +1,16 @@
 import { ReactElement } from "react";
 
-import { Header } from "@components/index";
-import { HomeContainer } from "./styles";
+import { AddTask, Header } from "@components/index";
+import * as S from "./styles";
 
 export const Home = (): ReactElement => {
   return (
-    <HomeContainer>
+    <>
       <Header />
-    </HomeContainer>
+
+      <S.HomeContainer>
+        <AddTask />
+      </S.HomeContainer>
+    </>
   );
 };
