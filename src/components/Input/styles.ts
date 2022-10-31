@@ -10,7 +10,7 @@ export const InputContainer = styled.TextInput`
     color: ${theme.colors["gray-100"]};
     background-color: ${theme.colors["gray-500"]};
     font-family: ${theme.fontFamily.regular};
-    font-size: ${theme.fontSize.lg}px;
+    font-size: ${theme.fontSize.lg};
   `};
 
   border-radius: 6px;

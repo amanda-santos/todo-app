@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { AddTask, Header } from "@components/index";
+import { AddTask, Header, Tasks } from "@components/index";
 import * as S from "./styles";
 
 export const Home = (): ReactElement => {
@@ -10,6 +10,8 @@ export const Home = (): ReactElement => {
 
       <S.HomeContainer>
         <AddTask />
+
+        <Tasks />
       </S.HomeContainer>
     </>
   );
