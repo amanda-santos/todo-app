@@ -10,7 +10,10 @@ export const Tasks = () => {
 
   return (
     <S.TasksContainer>
-      <TasksInfo />
+      <TasksInfo
+        amountOfCreatedTasks={tasks.length}
+        amountOfCompletedTasks={tasks.filter((task) => task.isCompleted).length}
+      />
 
       {tasks.length > 0 ? (
         <S.TasksListContainer>
