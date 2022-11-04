@@ -4,8 +4,16 @@ import * as S from "./styles";
 
 export const Tasks = () => {
   const [tasks, setTasks] = useState([
-    { id: 1, name: "Task 1", isCompleted: false },
-    { id: 2, name: "Task 2", isCompleted: true },
+    {
+      id: 1,
+      name: "Integer urna interdum massa libero auctor neque turpis turpis semper.",
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      name: "Integer urna interdum massa libero auctor neque turpis turpis semper.",
+      isCompleted: true,
+    },
   ]);
 
   return (

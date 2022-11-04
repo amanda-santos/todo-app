@@ -26,6 +26,7 @@ export const Text = styled.Text<TextProps>`
       weight ? theme.fontFamily["bold"] : theme.fontFamily.regular
     };
     font-size: ${size ? theme.fontSize[size] : theme.fontSize.md};
+
     ${customStyles}
   `}
 `;
