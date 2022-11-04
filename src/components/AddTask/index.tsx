@@ -1,4 +1,4 @@
-import { Input } from "@components/index";
+import { Input } from "../Input";
 
 import * as S from "./styles";
 
