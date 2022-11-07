@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
-import { Alert } from "react-native";
+import { useEffect } from "react";
 
-import { getAllTasks } from "@storage/task";
-import { Task } from "src/types";
+import { useTasksContext } from "@contexts/TasksContext";
 import { EmptyState, TaskItem, TasksInfo } from "./components";
 import * as S from "./styles";
 
 export const Tasks = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
-
-  const fetchTasks = async () => {
-    try {
-      const tasks = await getAllTasks();
-      setTasks(tasks);
-      console.log(tasks);
-    } catch (error) {
-      Alert.alert("Error", "Something went wrong while fetching tasks");
-      console.log(error);
-    }
-  };
+  const { fetchTasks, tasks } = useTasksContext();
 
   useEffect(() => {
     fetchTasks();
