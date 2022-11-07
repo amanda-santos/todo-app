@@ -7,11 +7,11 @@ import { Text } from "@components/Text";
 import * as S from "./styles";
 
 type TaskItemProps = {
-  name: string;
+  description: string;
   isCompleted: boolean;
 };
 
-export const TaskItem = ({ name, isCompleted }: TaskItemProps) => {
+export const TaskItem = ({ description, isCompleted }: TaskItemProps) => {
   const [isChecked, setChecked] = useState(isCompleted);
   const { colors } = useTheme();
 
@@ -32,7 +32,7 @@ export const TaskItem = ({ name, isCompleted }: TaskItemProps) => {
             customStyles: "text-decoration: line-through",
           })}
         >
-          {name}
+          {description}
         </Text>
       </S.TaskCheckboxAndText>
       <TouchableOpacity>

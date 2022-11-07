@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Alert } from "react-native";
+
+import { getAllTasks } from "@storage/task";
+import { Task } from "src/types";
 import { EmptyState, TaskItem, TasksInfo } from "./components";
 import * as S from "./styles";
 
 export const Tasks = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      name: "Integer urna interdum massa libero auctor neque turpis turpis semper.",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      name: "Integer urna interdum massa libero auctor neque turpis turpis semper.",
-      isCompleted: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const fetchTasks = async () => {
+    try {
+      const tasks = await getAllTasks();
+      setTasks(tasks);
+      console.log(tasks);
+    } catch (error) {
+      Alert.alert("Error", "Something went wrong while fetching tasks");
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   return (
     <S.TasksContainer>
@@ -27,8 +35,8 @@ export const Tasks = () => {
         <S.TasksListContainer>
           {tasks.map((task) => (
             <TaskItem
-              key={task.id}
-              name={task.name}
+              key={task.uuid}
+              description={task.description}
               isCompleted={task.isCompleted}
             />
           ))}

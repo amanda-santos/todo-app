@@ -6,6 +6,6 @@ export const TaskCheckboxAndText = styled.TouchableOpacity`
   justify-content: space-between;
 
   width: 100%;
-  max-width: 92%;
-  margin-right: 8px;
+  max-width: 80%;
+  margin-right: 40px;
 `;

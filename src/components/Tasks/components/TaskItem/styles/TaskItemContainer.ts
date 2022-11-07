@@ -7,7 +7,7 @@ export const TaskItemContainer = styled.View`
 
   width: 100%;
   height: 64px;
-  padding: 8px 24px;
+  padding: 8px 16px;
   margin-bottom: 8px;
 
   flex-direction: row;
