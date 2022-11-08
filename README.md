@@ -29,10 +29,9 @@
 
 ## 📝 About the project
 
-<>This is a to-do app where you can add all of your tasks. Available in English 🇬🇧. 
+This is a to-do app where you can add all of your tasks. Available in English 🇬🇧. 
 <br />
 Developed as a challenge of Ignite React Native by <a href="https://rocketseat.com.br/">Rocketseat</a> 🚀
-</p>
 
 ## 🎨 Layout
 
