@@ -20,13 +20,15 @@ export type TextProps = {
 };
 
 export const Text = styled.Text<TextProps>`
+  line-height: 20px;
+
   ${({ color, size, weight, theme, customStyles }) => `
     color: ${color ? theme.colors[color] : theme.colors["gray-100"]};
     font-family: ${
       weight ? theme.fontFamily["bold"] : theme.fontFamily.regular
     };
     font-size: ${size ? theme.fontSize[size] : theme.fontSize.md};
-
+    
     ${customStyles}
   `}
 `;

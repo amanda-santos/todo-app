@@ -6,8 +6,8 @@ export const TaskItemContainer = styled.View`
   border: 1px solid ${({ theme }) => theme.colors["gray-400"]};
 
   width: 100%;
-  height: 64px;
-  padding: 8px 16px;
+  min-height: 64px;
+  padding: 16px 16px;
   margin-bottom: 8px;
 
   flex-direction: row;

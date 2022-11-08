@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { FlatList } from "react-native";
 
 import { useTasksContext } from "@contexts/TasksContext";
 import { EmptyState, TaskItem, TasksInfo } from "./components";
@@ -18,15 +19,21 @@ export const Tasks = () => {
         amountOfCompletedTasks={tasks.filter((task) => task.isCompleted).length}
       />
 
-      {tasks.length > 0 ? (
-        <S.TasksListContainer>
-          {tasks.map((task) => (
-            <TaskItem key={task.uuid} task={task} />
-          ))}
-        </S.TasksListContainer>
-      ) : (
-        <EmptyState />
-      )}
+      <FlatList
+        data={tasks}
+        keyExtractor={(task) => task.uuid}
+        renderItem={({ item }) => <TaskItem task={item} />}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={<EmptyState />}
+        contentContainerStyle={{
+          alignItems: "center",
+          justifyContent: "center",
+
+          width: "100%",
+          marginTop: 20,
+          paddingBottom: 64,
+        }}
+      />
     </S.TasksContainer>
   );
 };
