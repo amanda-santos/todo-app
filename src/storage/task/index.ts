@@ -1,3 +1,3 @@
 export { createTask } from "./createTask";
 export { getAllTasks } from "./getAllTasks";
-export { removeTaskById } from "./removeTaskById";
+export { removeTaskByUuid } from "./removeTaskByUuid";

@@ -21,11 +21,7 @@ export const Tasks = () => {
       {tasks.length > 0 ? (
         <S.TasksListContainer>
           {tasks.map((task) => (
-            <TaskItem
-              key={task.uuid}
-              description={task.description}
-              isCompleted={task.isCompleted}
-            />
+            <TaskItem key={task.uuid} task={task} />
           ))}
         </S.TasksListContainer>
       ) : (

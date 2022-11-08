@@ -2,18 +2,24 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { useTheme } from "styled-components/native";
 
+import { Task } from "src/types";
 import { Text } from "@components/Text";
+import { useTasksContext } from "@contexts/TasksContext";
 
 import * as S from "./styles";
 
 type TaskItemProps = {
-  description: string;
-  isCompleted: boolean;
+  task: Task;
 };
 
-export const TaskItem = ({ description, isCompleted }: TaskItemProps) => {
-  const [isChecked, setChecked] = useState(isCompleted);
+export const TaskItem = ({ task }: TaskItemProps) => {
+  const [isChecked, setChecked] = useState(task.isCompleted);
   const { colors } = useTheme();
+  const { onRemoveTask } = useTasksContext();
+
+  const handleRemoveTask = () => {
+    onRemoveTask(task.uuid);
+  };
 
   return (
     <S.TaskItemContainer>
@@ -32,10 +38,10 @@ export const TaskItem = ({ description, isCompleted }: TaskItemProps) => {
             customStyles: "text-decoration: line-through",
           })}
         >
-          {description}
+          {task.description}
         </Text>
       </S.TaskCheckboxAndText>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleRemoveTask}>
         <S.DeleteIcon />
       </TouchableOpacity>
     </S.TaskItemContainer>
