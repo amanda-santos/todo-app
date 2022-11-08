@@ -35,7 +35,9 @@ export const TasksProvider = ({ children }: TasksProviderProps) => {
   const fetchTasks = async () => {
     try {
       const tasks = await getAllTasks();
-      setTasks(tasks);
+      setTasks(
+        tasks.sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted))
+      );
     } catch (error) {
       Alert.alert("Error", "Something went wrong while fetching tasks");
       console.log(error);
