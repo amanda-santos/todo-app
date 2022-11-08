@@ -1,7 +1,18 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Alert } from "react-native";
 
-import { getAllTasks, createTask, removeTaskByUuid } from "@storage/task";
+import {
+  getAllTasks,
+  createTask,
+  removeTaskByUuid,
+  updateTask,
+} from "@storage/task";
 import { Task } from "src/types";
 
 export type TasksContextType = {
@@ -9,6 +20,7 @@ export type TasksContextType = {
   fetchTasks: () => Promise<void>;
   onCreateTask: (taskDescription: Task["description"]) => Promise<void>;
   onRemoveTask: (taskUuid: Task["uuid"]) => Promise<void>;
+  onUpdateTask: (taskUuid: Task["uuid"]) => Promise<void>;
 };
 
 export const TasksContext = createContext({} as TasksContextType);
@@ -65,6 +77,20 @@ export const TasksProvider = ({ children }: TasksProviderProps) => {
     }
   };
 
+  const onUpdateTask = async (taskUuid: Task["uuid"]) => {
+    try {
+      await updateTask(taskUuid);
+
+      fetchTasks();
+    } catch (error) {
+      Alert.alert(
+        "Update task",
+        "An error occurred while updating the task. Please try again."
+      );
+      console.log(error);
+    }
+  };
+
   return (
     <TasksContext.Provider
       value={{
@@ -72,6 +98,7 @@ export const TasksProvider = ({ children }: TasksProviderProps) => {
         fetchTasks,
         onCreateTask,
         onRemoveTask,
+        onUpdateTask,
       }}
     >
       {children}

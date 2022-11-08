@@ -13,23 +13,26 @@ type TaskItemProps = {
 };
 
 export const TaskItem = ({ task }: TaskItemProps) => {
-  const [isChecked, setChecked] = useState(task.isCompleted);
+  const [isChecked, setIsChecked] = useState(task.isCompleted);
   const { colors } = useTheme();
-  const { onRemoveTask } = useTasksContext();
+  const { onRemoveTask, onUpdateTask } = useTasksContext();
 
   const handleRemoveTask = () => {
     onRemoveTask(task.uuid);
   };
 
+  const handleUpdateTask = () => {
+    onUpdateTask(task.uuid);
+    setIsChecked((prevState) => !prevState);
+  };
+
   return (
     <S.TaskItemContainer>
-      <S.TaskCheckboxAndText
-        onPress={() => setChecked((prevState) => !prevState)}
-      >
+      <S.TaskCheckboxAndText onPress={handleUpdateTask}>
         <S.TaskItemCheckbox
           color={colors["primary-base"]}
           value={isChecked}
-          onValueChange={setChecked}
+          onValueChange={handleUpdateTask}
         />
 
         <Text
